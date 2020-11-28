@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Pt-search
 // @namespace    http://blog.rhilip.info
-// @version      20181205
+// @version      20201128
 // @description  Pt-search 配套脚本
 // @author       Rhilip
 // @run-at       document-end
@@ -508,9 +508,9 @@ $(document).ready(function () {
 						"free": '',
 						"pubdate": _date,
 						"size": FileSizetoLength(_size),
-						"seeders": _tag_seeders.text().replace(',', '') || 0,
-						"leechers": _tag_leechers.text().replace(',', '') || 0,
-						"completed": _tag_completed.text().replace(',', '') || 0
+						"seeders": _tag_seeders.text().replace(/[^\d]/g, '') || 0,
+						"leechers": _tag_leechers.text().replace(/[^\d]/g, '') || 0,
+						"completed": _tag_completed.text().replace(/[^\d]/g, '') || 0
 					});
 				}
 			});
